@@ -178,6 +178,28 @@ header nav a:not(.cta){display:none}.grid{grid-auto-rows:220px}
 .mb{touch-action:pan-y}.mb video,.mb img{user-select:none;-webkit-user-drag:none}
 @media(max-width:560px){.mb .nav{font-size:22px;padding:12px}}
 #bio2{border-top:1px solid var(--line)}
+/* вверху только «Обо мне», остальное внизу */
+section.bio:not(#bio2){grid-template-columns:1fr}
+section.bio:not(#bio2) .about{grid-column:1/-1;padding:44px 24px}
+section.bio:not(#bio2) .cols{max-width:760px;columns:2}
+section.bio:not(#bio2) .about .lead{max-width:40ch;font-size:clamp(18px,1.6vw,24px)}
+#bio2{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+#bio2>div{border-right:1px solid var(--line)}#bio2>div:last-child{border-right:none}
+@media(max-width:900px){#bio2{grid-template-columns:1fr}#bio2>div{border-right:none;border-bottom:1px solid var(--line)}#bio2>div:last-child{border-bottom:none}section.bio:not(#bio2) .cols{columns:1}}
+/* контакты: четыре ссылки под телефоном; «Стоимость» и «Факты» внизу в две колонки */
+#bio2{grid-template-columns:repeat(2,1fr)}
+.contact{grid-template-columns:repeat(4,1fr)}
+@media(max-width:900px){#bio2{grid-template-columns:1fr}}
+@media(max-width:560px){
+ #bio2>div{padding:26px 20px}
+ .contact{grid-template-columns:1fr 1fr;gap:0;padding:0 0 8px;row-gap:0}
+ .contact .ph{grid-column:1/-1;padding:30px 16px 22px;font-size:30px;text-align:center;display:block}
+ .contact>div:not(.ph){padding:18px 12px;border-top:1px solid var(--line);text-align:center}
+ .contact>div:nth-of-type(odd):not(.ph){border-right:1px solid var(--line)}
+ .contact>div .lbl{margin-bottom:6px}
+ .contact li{margin:0}
+ .contact li a{display:block;padding:6px 0;font-size:14px}
+}
 </style>
 </head>
 <body>
@@ -201,22 +223,9 @@ header nav a:not(.cta){display:none}.grid{grid-auto-rows:220px}
 <p>Что я делаю? Очень качественно готовлюсь, много шучу, импровизирую, слушаю вас и ваших гостей.</p>
 </div>
 </div>
-<div><div class="lbl">Факты</div><ul>
-<li><span class="n">01</span>17+ лет в деле, 1000+ событий</li>
-<li><span class="n">02</span>От 10 до 10 000 гостей</li>
-<li><span class="n">03</span>Свадьбы, корпоративы, фестивали, форумы, дни рождения, выпускные</li>
-<li><span class="n">04</span>Соло или дуэт, есть своя команда: фото, видео, прокатчики</li>
-<li><span class="n">05</span>Помогаю с организацией самых важных событий</li></ul></div>
-<div data-m="bottom"><div class="lbl">Стоимость</div><ul>
-<li><span class="n">—</span>Свадьба: 100 000 ₽<br><span class="lbl">4 ч программы + 1 ч афтерпати DJ</span></li>
-<li><span class="n">—</span>Свадьба: 120 000 ₽<br><span class="lbl">5 ч программы + 2 ч афтерпати DJ</span></li>
-<li><span class="n">—</span>Почасовая: от 20 000 ₽ / час<br><span class="lbl">ДР, корпоративы, конференции, выездная церемония</span></li></ul>
-<p class="lbl" style="margin-top:6px">Выезд за пределы Тюмени — обсуждаем индивидуально</p></div>
-<div data-m="bottom"><div class="lbl">Ссылки</div><ul>
-<li><span class="n">01</span><a target="_blank" rel="noopener" href="https://t.me/aromashev">Telegram ↗</a></li>
-<li><span class="n">02</span><a target="_blank" rel="noopener" href="https://vk.com/aromashev">ВКонтакте ↗</a></li>
-<li><span class="n">03</span><a target="_blank" rel="noopener" href="https://www.instagram.com/aromashev/">Instagram ↗</a></li>
-<li><span class="n">04</span><a target="_blank" rel="noopener" href="https://tumen.gorko.ru/album/7773273/">Горько.ру ↗</a></li></ul></div>
+
+
+
 </section>
 
 <section class="sec" id="projects"><div id="mosaic"></div></section>
@@ -232,13 +241,23 @@ header nav a:not(.cta){display:none}.grid{grid-auto-rows:220px}
 <div class="revs"><article class="rv"><div class="lab"><span class="n">01</span> Свадьба</div><p>«Выбирая ведущего на свадьбу, без тени сомнений выбрали Сашу: знали, что это человек, который отдаст себя полностью, чтобы этот день стал самым запоминающимся и лучшим не только для нас, но и для наших гостей. Все полгода подготовки он был на связи, помогал, советовал. Со свадьбы прошло больше полугода, но до сих пор наши гости твердят, что это была лучшая свадьба, на которой они были.»</p><div class="by">Пара</div></article><article class="rv"><div class="lab"><span class="n">02</span> Юбилей и корпоратив</div><p>«Первое знакомство было на юбилее подруги, круглая дата 30 лет, супер программа, которая подходила молодёжи и взрослым людям. Сашина харизма и чувство юмора могут спасти любой праздник. Дальше я приглашала Сашу на юбилей фирмы — корпоратив. Была тематическая вечеринка, где он накидал варианты проведения, помог подготовиться и отлично провёл весь праздник. 10 из 10 моя оценка.»</p><div class="by">Гости юбилея</div></article><article class="rv"><div class="lab"><span class="n">03</span> Свадьба</div><p>«Александр супер ведущий! Все на высшем уровне, профессионал своего дела. Свадьба прошла идеально, гости в восторге. Мы с мужем просто наслаждались, позабыв все переживания и тревоги. Спасибо ещё раз, что был с нами в этот важный день.»</p><div class="by">Пара</div></article><article class="rv"><div class="lab"><span class="n">04</span> Свадьба</div><p>«Александр, мы ни капельки не пожалели, что выбрали Вас. Ты тот ведущий, который сделал наш день прекрасным и незабываемым! Все гости были в восторге. Спасибо тебе большое!»</p><div class="by">Пара</div></article><article class="rv"><div class="lab"><span class="n">05</span> Свадьба</div><p>«Это было 100000000 раз круто! Мы вместе с вашей командой сделали этот вечер незабываемым! Эта свадьба навсегда в моей памяти! 10000000 раз спасибо!»</p><div class="by">Невеста</div></article><article class="rv"><div class="lab"><span class="n">06</span> Свадьба</div><p>«Саша, привет! Спасибо, что именно ты был с нами в наш день! Хотелось, чтобы всё было на лайте, и это был именно тот формат, который мы хотели! Гости все в восторге.»</p><div class="by">Пара</div></article><article class="rv"><div class="lab"><span class="n">07</span> Свадьба</div><p>«Саня, привет) хотим выразить вам с Темой огромную благодарность, всё прошло просто на высшем уровне, всё было ахренно.»</p><div class="by">Пара</div></article><article class="rv"><div class="lab"><span class="n">08</span> Свадьба</div><p>«Мы спустя выходные вроде отошли от свадьбы. В первую очередь хотим поблагодарить тебя за наш самый лучший день! Мы его запомним навсегда, и судя по отзывам, наши гости не скоро забудут. Большое спасибо тебе и DJ, вы раскачали наших гостей, никому не дали скучать. Мы не пожалели, что выбрали тебя с другого города, оно того стоило. Нам до сих пор приходят сообщения с благодарностью за такой классный день.»</p><div class="by">Пара</div></article><article class="rv"><div class="lab"><span class="n">09</span> Свадьба</div><p>«Наши гости каждый до одного в восторге от обстановки, которую ты создал. И все единогласно сказали, что был лучший ведущий! Огромное спасибо за наш праздник! Всё было прям огонь.»</p><div class="by">Алисочка</div></article><article class="rv"><div class="lab"><span class="n">10</span> Свадьба</div><p>«Александр, хотим выразить тебе свою благодарность и своё восхищение проведённым тобой праздником! Всё получилось очень здорово, классно, атмосферно! Все гости остались в полном восторге от свадьбы, во многом благодаря тебе! Ты профессионал своего дела. Мы не ошиблись в выборе ведущего.»</p><div class="by">Анюта</div></article><article class="rv"><div class="lab"><span class="n">11</span> Родители невесты</div><p>«Хотим от имени родителей невесты выразить огромную благодарность ведущему Александру Ромашову и всей его команде за прекрасный праздник! Александр, Вы супер! Наши родственники из Екатеринбурга в восторге от Вас!»</p><div class="by">Наталья Сединкина</div></article><article class="rv"><div class="lab"><span class="n">12</span> Свадьба</div><p>«Оригинальность, креатив, юмор. Знала тебя ещё с института, мероприятия с твоим участием не посещали, но очень наслышаны положительных отзывов. Выбирали сами и остановились на тебе, когда просмотрели твою работу на видеороликах. Новизна, не затёртый до дыр сценарий, когда сидишь и думаешь: «Когда уже будет танцевальная пауза, надоело одно и то же из одной свадьбы в другую!» Клиентоориентированность и самый огромный плюс — юмор.»</p><div class="by">Алёна</div></article><article class="rv"><div class="lab"><span class="n">13</span> Выездная регистрация</div><p>«Привет! Ништячки! Спасибо! Выспались! Всё круто! Будем ждать. Саша, ты супер, МЕГА ведущий! Удачи тебе!»</p><div class="by">Анастасия</div></article><article class="rv"><div class="lab"><span class="n">14</span> Свадьба в Крыму</div><p>«Спасибо большое вам, вы крутые реально, без вас этот день таким классным не был бы. Для нас вы уже как родные. Обнимаем вас, прилетайте к нам в Крым.»</p><div class="by">Полина</div></article><article class="rv"><div class="lab"><span class="n">15</span> Свадьба</div><p>«Сань, свадьба вообще огонь, нам очень понравилось, от души. Тебе респект и уважуха.»</p><div class="by">Илья</div></article><article class="rv"><div class="lab"><span class="n">16</span> Свадьба</div><p>«Спасибо Вам огромное, вы лучшие! Вы такие крутые, всё было просто огонь.»</p><div class="by">Кристина Волосатова</div></article><article class="rv"><div class="lab"><span class="n">17</span> Праздник</div><p>«Ребятааа, спасибо Вам огромное, праздник удался, мы очень рады, гости в восторге! А все остальные слова благодарности при личной встрече, так что ждём Вас в гости.»</p><div class="by">Оксана Натарова</div></article><article class="rv"><div class="lab"><span class="n">18</span> Свадьба</div><p>«Ребята, спасибо большое ещё раз! Вы мега крутые! Это была самая лучшая свадьба! Мы в восторге, всё безумно понравилось, гости наши под впечатлением.»</p><div class="by">Стас Дрягин</div></article><article class="rv"><div class="lab"><span class="n">19</span> Свадьба · голосовое</div><p>«Нас до сих пор переполняют эмоции. Мы готовы пересматривать все видосики и фотографии. Большое спасибо за твою проделанную работу по организации нашего важного дня. Спасибо твоей команде, диджею, что организовал свет. Все гости до сих пор в восторге. Мама теперь уже мужа каждый раз говорит, что пересматривает видео и плачет. Тебе побольше свадеб прикольных пар.»</p><div class="by">Полина</div></article><article class="rv"><div class="lab"><span class="n">20</span> Свадьба · голосовое</div><p>«Спасибо тебе большое за то, что ты сделал этот день намного ярче и прекраснее. С тобой было реально легко, не только в день торжества, но и долго до него. Вам приятно было то, что ты мог подходить абсолютно любую тему, и ни разу не было ни одного конкурса, просто живое общение. Продолжай в том же духе, у тебя будут прекрасные молодожёны.»</p><div class="by">Наталья</div></article><article class="rv"><div class="lab"><span class="n">21</span> Вечер</div><p>«Ребят, вы супер классные! Огромнейшее вам спасибо за проведённый вечер! Все в восторге! Всё было легко, комфортно и уютно! Вы лучшие.»</p><div class="by">Анастасия Тенсина</div></article><article class="rv"><div class="lab"><span class="n">22</span> Свадьба сына</div><p>«Всегда мечтала побывать на идеальной свадьбе: весёлой, интересной и счастливой! Именно такой оказалась свадьба сына, и всё это благодаря слаженной работе ведущего, диджея и фотографа. Мы сделали верный выбор и всем теперь советуем только Вас.»</p><div class="by">Svet Svetlana</div></article><article class="rv"><div class="lab"><span class="n">23</span> Мастер-класс · 2019</div><p>«Сегодня, 2 декабря 2019 г., была на мастер-классе. Приехала только что! Эмоции шкалят! Саши вы большие молодцы. Много рабочего материала, новых интересных идей. Подача, общение, обаяние, свой стиль, мягкость, юмор. Получила удовольствие! Огромное вам, Александры, спасибо!»</p><div class="by">Марина Никифорова</div></article><article class="rv"><div class="lab"><span class="n">24</span> Праздник · 2018</div><p>«С вами наш день стал ещё лучше. Спасибо большое за ваш труд. Вы однозначно занимаетесь своим делом.»</p><div class="by">Ксения Ракитина</div></article></div>
 </section>
 
-<section class="bio" id="bio2" style="display:none"></section>
+<section class="bio" id="bio2"><div><div class="lbl">Факты</div><ul>
+<li><span class="n">01</span>17+ лет в деле, 1000+ событий</li>
+<li><span class="n">02</span>От 10 до 10 000 гостей</li>
+<li><span class="n">03</span>Свадьбы, корпоративы, фестивали, форумы, дни рождения, выпускные</li>
+<li><span class="n">04</span>Соло или дуэт, есть своя команда: фото, видео, прокатчики</li>
+<li><span class="n">05</span>Помогаю с организацией самых важных событий</li></ul></div><div><div class="lbl">Стоимость</div><ul>
+<li><span class="n">—</span>Свадьба: 100 000 ₽<br><span class="lbl">4 ч программы + 1 ч афтерпати DJ</span></li>
+<li><span class="n">—</span>Свадьба: 120 000 ₽<br><span class="lbl">5 ч программы + 2 ч афтерпати DJ</span></li>
+<li><span class="n">—</span>Почасовая: от 20 000 ₽ / час<br><span class="lbl">ДР, корпоративы, конференции, выездная церемония</span></li></ul>
+<p class="lbl" style="margin-top:6px">Выезд за пределы Тюмени — обсуждаем индивидуально</p></div></section>
 
 <section class="contact" id="contact">
 <a class="ph" href="tel:89827786960">8 982 778 69 60 →</a>
 <div><div class="lbl">Telegram</div><ul><li><a target="_blank" rel="noopener" href="https://t.me/aromashev">@aromashev ↗</a></li></ul></div>
 <div><div class="lbl">ВКонтакте</div><ul><li><a target="_blank" rel="noopener" href="https://vk.com/aromashev">vk.com/aromashev ↗</a></li></ul></div>
 <div><div class="lbl">Instagram</div><ul><li><a target="_blank" rel="noopener" href="https://www.instagram.com/aromashev/">@aromashev ↗</a></li></ul></div>
+<div><div class="lbl">Горько.ру</div><ul><li><a target="_blank" rel="noopener" href="https://tumen.gorko.ru/album/7773273/">Отзывы ↗</a></li></ul></div>
 </section>
 <footer><span>Ромашёв</span><span>© 2026 · Тюмень</span></footer>
 
@@ -256,10 +275,7 @@ const $=s=>document.querySelector(s);
 function two(n){return String(n).padStart(2,'0')}
 let cur=[],ci=0;
 const ORDER=PJ.map(p=>[p.k,p.name]);
-/* телефон: «Стоимость» и «Ссылки» уходят вниз страницы, перед контактами */
-function placeBio(){const mob=innerWidth<=560,bio=document.querySelector('section.bio:not(#bio2)'),bot=document.getElementById('bio2');
- [...document.querySelectorAll('[data-m="bottom"]')].forEach(k=>(mob?bot:bio).appendChild(k));bot.style.display=mob?'grid':'none'}
-placeBio();addEventListener('resize',placeBio);
+
 let seq=[],si=0;
 function projSeq(k){return V.filter(v=>v.c===k).map(v=>({v})).concat(P.filter(p=>p.c===k).map(p=>({p})))}
 function openV(v){seq=projSeq(v.c);si=seq.findIndex(x=>x.v&&x.v.id===v.id);showSeq(0)}
